@@ -4,8 +4,7 @@ metadata:
   name: nginx-ingress
   namespace: ingress-nginx
   annotations:
-    fluxcd.io/ignore: "true"
-    new-annotation: ben
+    fluxcd.io/ignore: "false"
 spec:
   releaseName: nginx-ingress
   chart:
