@@ -25,6 +25,6 @@ spec:
         args: 
         {{- range .Values.deployment.container.args }}
         - {{ . -}}
-        {{ end -}}
+        {{ end }}
       securityContext:
         fsGroup: 65534
