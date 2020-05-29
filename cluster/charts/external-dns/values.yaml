@@ -1,0 +1,26 @@
+replicaCount: 1
+
+project: zimulator
+
+provider: aws
+
+serviceAccount:
+  annotations:
+    iam.amazonaws.com/role-arn: arn:aws:iam::264076151097:role/eks-zimulator-external-dns
+
+deployment:
+  annotations:
+    iam.amazonaws.com/role: arn:aws:iam::264076151097:role/eks-zimulator-external-dns
+  container:
+    args:
+      - --source=ingress
+      - --source=service
+      - --domain-filter=zimcore.io
+      - --provider=aws
+      - --policy=upsert-only
+      - --aws-zone-type=public
+      - --registry=txt
+      - --txt-owner-id=zimulator
+      - --txt-prefix=zimulator
+      - --aws-prefer-cname
+      - --log-level=debug

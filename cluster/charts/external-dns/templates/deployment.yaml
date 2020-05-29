@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "external-dns.name" . }}
+labels:
+{{ include "external-dns.labels" . | indent 2 }}
+spec:
+  selector:
+    matchLabels:
+      app: {{ include "external-dns.name" . }}
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app: {{ include "external-dns.name" . }}
+{{ include "external-dns.labels" . | indent 8 }}
+      annotations:
+        {{ .Values.deployment.annotations | toYaml -}}
+    spec:
+      serviceAccountName: external-dns
+      containers:
+      - name: external-dns
+        image: registry.opensource.zalan.do/teapot/external-dns:latest
+        args: 
+        {{- range .Values.deployment.container.args }}
+        - {{ . -}}
+        {{ end -}}
+      securityContext:
+        fsGroup: 65534
