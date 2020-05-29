@@ -15,12 +15,12 @@ deployment:
     args:
       - --source=ingress
       - --source=service
-      - --domain-filter=zimcore.io
+      - --domain-filter=bjh.zimcore.io
       - --provider=aws
       - --policy=upsert-only
       - --aws-zone-type=public
       - --registry=txt
-      - --txt-owner-id=zimulator
-      - --txt-prefix=zimulator
+      - --txt-owner-id=bjh
+      - --txt-prefix=bjh
       - --aws-prefer-cname
       - --log-level=debug
