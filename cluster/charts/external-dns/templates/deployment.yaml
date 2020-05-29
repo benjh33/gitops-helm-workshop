@@ -2,8 +2,8 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: {{ include "external-dns.name" . }}
-labels:
-{{ include "external-dns.labels" . | indent 2 }}
+  labels:
+{{ include "external-dns.labels" . | indent 4 }}
 spec:
   selector:
     matchLabels:
