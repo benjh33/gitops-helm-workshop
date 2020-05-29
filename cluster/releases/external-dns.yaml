@@ -1,8 +1,8 @@
 apiVersion: helm.fluxcd.io/v1
 kind: HelmRelease
 metadata:
-  name: external-dna
-  namespace: external-dna
+  name: external-dns
+  namespace: external-dns
   annotations:
     fluxcd.io/ignore: "false"
 spec:
@@ -11,4 +11,3 @@ spec:
     git: git@github.com:benjh33/gitops-helm-workshop
     ref: master
     path: cluster/charts/external-dns
-  values:
