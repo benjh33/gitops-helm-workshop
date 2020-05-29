@@ -16,7 +16,7 @@ spec:
         app: {{ include "external-dns.name" . }}
 {{ include "external-dns.labels" . | indent 8 }}
       annotations:
-        {{ .Values.deployment.annotations | toYaml -}}
+        {{ .Values.deployment.annotations | toYaml }}
     spec:
       serviceAccountName: external-dns
       containers:
