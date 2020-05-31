@@ -6,11 +6,11 @@ provider: aws
 
 serviceAccount:
   annotations:
-    eks.amazonaws.com/role-arn: arn:aws:iam::264076151097:role/eks-zimulator-external-dns
+    eks.amazonaws.com/role-arn: "arn:aws:iam::264076151097:role/eks-zimulator-external-dns"
 
 deployment:
   annotations:
-    iam.amazonaws.com/role: arn:aws:iam::264076151097:role/eks-zimulator-external-dns
+    iam.amazonaws.com/role: "arn:aws:iam::264076151097:role/eks-zimulator-external-dns"
   container:
     args:
       - --source=ingress
