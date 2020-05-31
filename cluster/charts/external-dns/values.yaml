@@ -15,7 +15,7 @@ deployment:
     args:
       - --source=ingress
       - --source=service
-      - --domain-filter=bjh.zimcore.io
+      - --domain-filter=zimcore.io
       - --provider=aws
       - --policy=upsert-only
       - --aws-zone-type=public
