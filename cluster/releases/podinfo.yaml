@@ -22,7 +22,7 @@ spec:
       enabled: true
       type: ClusterIP
       annotations:
-        external-dns.alpha.kubernetes.io/hostname: podinfo.bjh.zimcore.io
+        external-dns.alpha.kubernetes.io/hostname: "podinfo.bjh.zimcore.io"
     ingress:
       enabled: true
       annotations:
